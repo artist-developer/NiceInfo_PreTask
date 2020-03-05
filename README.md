@@ -106,7 +106,7 @@ NICE평가정보 상반기 수시채용 실무면접 사전과제
 
 	**[테스트명]\src 내 파일 모두 삭제
 
-	**본 repository의 react-client\src 경로의 모든 파일들을 [테스트명]\src에 복사
+	**본 repository의 react-client/src 경로의 모든 파일들을 [테스트명]/src에 복사
 
 	cmd > cd [테스트명] 
 	
