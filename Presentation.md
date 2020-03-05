@@ -9,7 +9,7 @@
 
 **Back-end**
 
-	Spring Framework(배치) + MySql(데이터 적재) + Docker(container)
+	Spring Framework + Tomcat + MySql(데이터 적재) + Docker(container)
 
 
 **Front-end**
