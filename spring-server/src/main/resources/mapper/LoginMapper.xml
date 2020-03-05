@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.LoginMapper">
+	<select id="login" parameterType="com.artistdeveloper.api.domain.MemberEntity" resultType="string">
+	/* 로그인 */
+		select 
+			rst 
+		from (
+			select 
+				case 
+					when id=#{id} and password = password(#{password}) then '200' <!-- #둘다 맞음  -->
+					when id != #{id} then '501'
+					when id=#{id} and password != password(#{password}) then '502' <!-- #아이디 맞고 비번 틀림  -->
+				end as rst
+			from 
+				testMember
+		)login
+		where 
+			login.rst is not null
+	</select>
+	<select id="user_info" parameterType="com.artistdeveloper.api.domain.MemberEntity" resultType="com.artistdeveloper.api.domain.MemberEntity">
+	/* 유저정보 email, password로 가져오기  */
+		select
+			u.*
+		from
+			testMember u
+		where
+			u.id = #{id} and
+			u.password = password(#{password})
+	</select> 
+	<select id="user_info_member_seq" parameterType="com.artistdeveloper.api.domain.MemberEntity" resultType="com.artistdeveloper.api.domain.MemberEntity">
+	/* 유저정보 member로 가져오기  */
+		select
+			DATE_FORMAT(u.create_dt, '%Y-%m-%d') join_date, 
+			u.*
+		from
+			member u
+		where
+			u.delete_yn != 'Y' and
+			u.member_seq = #{member_seq}
+	</select>
+	<insert id="join" parameterType="com.artistdeveloper.api.domain.MemberEntity" > 
+	/* 유저 가입 */
+		insert into member(
+			email, 
+			password, 
+			name, 
+			nickname, 
+			phone,
+			enter_type,
+			create_dt
+		)
+		values(
+			#{email}, 
+			password(#{password}), 
+			#{name}, 
+			#{nickname}, 
+			replace(#{phone}, '-', ''),
+			'email',
+			now()
+		)
+	</insert>
+	
+	
+
+</mapper>

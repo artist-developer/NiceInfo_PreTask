@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.apiMapper">
+	<insert id="apiInsert" parameterType="java.util.List">
+	/* 건축정보 insert */
+	insert into 
+		bldRgst(
+			platPlc,
+			sigunguCd,
+			bjdongCd,
+			platGbCd,
+			bun,
+			ji,
+			mgmBldrgstPk,
+			mgmUpBldrgstPk,
+			regstrGbCd,
+			regstrGbCdNm,
+			regstrKindCd,
+			regstrKindCdNm,
+			newPlatPlc,
+			bldNm,
+			splotNm,
+			block,
+			lot,
+			bylotCnt,
+			naRoadCd,
+			naBjdongCd,
+			naUgrndCd,
+			naMainBun,
+			naSubBun,
+			jiyukCd,
+			jiguCd,
+			guyukCd,
+			jiyukCdNm,
+			jiguCdNm,
+			guyukCdNm,
+			crtnDay,
+			createDay
+		)
+		values
+    <foreach collection="list" item="item" separator=",">
+        (
+        	#{item.platPlc},
+        	#{item.sigunguCd},
+        	#{item.bjdongCd},
+        	#{item.platGbCd},
+        	#{item.bun},
+        	#{item.ji},
+        	#{item.mgmBldrgstPk},
+        	#{item.mgmUpBldrgstPk},
+        	#{item.regstrGbCd},
+        	#{item.regstrGbCdNm},
+        	#{item.regstrKindCd},
+        	#{item.regstrKindCdNm},
+        	#{item.newPlatPlc},
+        	#{item.bldNm},
+        	#{item.splotNm},
+        	#{item.block},
+        	#{item.lot},
+        	#{item.bylotCnt},
+        	#{item.naRoadCd},
+        	#{item.naBjdongCd},
+        	#{item.naUgrndCd},
+        	#{item.naMainBun},
+        	#{item.naSubBun},
+        	#{item.jiyukCd},
+        	#{item.jiguCd},
+        	#{item.guyukCd},
+        	#{item.jiyukCdNm},
+        	#{item.jiguCdNm},
+        	#{item.guyukCdNm},
+        	#{item.crtnDay},
+        	now()
+        )
+    </foreach>
+	</insert>
+	<select id="apiList" resultType="com.artistdeveloper.api.domain.bldRgstEntity">
+	/* 건축 정보 가져오기 */
+		select
+			@ROWNUM:=@ROWNUM+1 as rnum,
+			seq,
+			platPlc,
+			sigunguCd,
+			bjdongCd,
+			platGbCd,
+			bun,
+			ji,
+			mgmBldrgstPk,
+			mgmUpBldrgstPk,
+			regstrGbCd,
+			regstrGbCdNm,
+			regstrKindCd,
+			regstrKindCdNm,
+			newPlatPlc,
+			bldNm,
+			splotNm,
+			block,
+			lot,
+			bylotCnt,
+			naRoadCd,
+			naBjdongCd,
+			naUgrndCd,
+			naMainBun,
+			naSubBun,
+			jiyukCd,
+			jiguCd,
+			guyukCd,
+			jiyukCdNm,
+			jiguCdNm,
+			guyukCdNm,
+			crtnDay,
+			DATE_FORMAT(NOW(),'%Y-%m-%d %H 시 %i 분') as createDay
+		from
+			bldRgst b , (SELECT @ROWNUM:=0) TMP
+	</select>
+	<delete id="apiDelete">
+      delete
+      from
+         bldRgst
+   </delete>
+   <insert id="apiHistoryInsert" parameterType="hashmap">
+       insert into bldRgstHis(cnt, rst_cnt, is_process, create_dt) 
+       values(#{cnt}, #{rst_cnt}, #{is_process}, now())
+   </insert>
+</mapper>
