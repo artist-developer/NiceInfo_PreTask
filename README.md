@@ -47,8 +47,8 @@ NICE평가정보 상반기 수시채용 실무면접 사전과제
 	docker pull artistdeveloper/apicall:4
 
 **컨테이너 생성**
-	
-	docker run -i -t -d --dns=8.8.8.8 --name [컨테이너명] artistdeveloper/apicall:4
+
+	docker run -i -t -d -p 8080:8080 --dns=192.168.99.100 --dns=8.8.8.8 --name [컨테이너명] artistdeveloper/apicall:4
 
 **컨테이너 터미널 접속**
 	
