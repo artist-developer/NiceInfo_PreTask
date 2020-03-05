@@ -14,7 +14,7 @@ class ApiList extends Component{
   }
   
   componentDidMount(){
-    axios.get("http://127.0.0.1:8070/apiList").then(res => {
+    axios.get("http://192.168.99.100:8080/apiList").then(res => {
       console.log(res.data);
       console.log(res.data.data);
       console.log(res.data.data[0]);

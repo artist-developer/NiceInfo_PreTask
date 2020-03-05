@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link , Switch } from 'react-router-dom';
 
 
 import Login from './components/Login';
@@ -13,7 +13,7 @@ class App extends Component{
   constructor(props){
     super(props);
     this.state = {
-      header:{title : "API Project"},
+      header:{title : ""},
       contents:[
         
       ],
@@ -32,7 +32,7 @@ class App extends Component{
                 <Link to="/">Login</Link>
               </li>
               <li>
-                <Link to="/about">ApiList</Link>
+                <Link to="/list">ApiList</Link>
               </li>
             </ul>
           </nav>
@@ -41,9 +41,7 @@ class App extends Component{
           <Route path='/list' component={ApiList}/>
         </div>
       </Router>
-      <div className="App">
-        <ApiList data={this.state.contents} day={this.state.createDay}></ApiList>
-      </div>
+      
     );
   }
 
