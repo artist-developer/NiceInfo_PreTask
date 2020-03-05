@@ -33,6 +33,8 @@
 
 : API 데이터 MySql에 저장
 
+: Spring에서 query문을 통해 데이터 접근
+
 
 ### Container wrapping 및 실행
 
