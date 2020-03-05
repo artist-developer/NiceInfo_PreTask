@@ -38,7 +38,37 @@ NICE평가정보 상반기 수시채용 실무면접 사전과제
 ### Back-end 실행 방법
 
 
-#### 로컬 빌드
+#### Docker 환경 실행
+	
+선행작업(윈도우 환경에 도커 설치된 상황, 도커 터미널에 접근 가능한 상황)
+
+**DockerHub에서 image 다운로드(artistdeveloper docker 계정에 업로드 상태)**
+	
+	docker pull artistdeveloper/apicall:4
+
+**컨테이너 생성**
+	
+	docker run -i -t -d --dns=8.8.8.8 --name [컨테이너명] artistdeveloper/apicall:4
+
+**컨테이너 터미널 접속**
+	
+	docker exec -it [컨테이너명] /bin/bash 
+
+**톰캣 서버시작**
+	
+	./usr/local/tomcat/apache-tomcat-8.5.51/bin/startup.sh -> 프로젝트 자동빌드
+
+**톰캣 로그출력 시**
+	
+	tail -f /usr/local/tomcat/apache-tomcat-8.5.51/logs/catalina.out
+
+**톰캣 서버종료**
+	
+	cd /usr/local/tomcat/apache-tomcat-8.5.51/bin/shutdown.sh
+
+
+
+#### 로컬 환경 실행
 	
 선행작업(윈도우 환경에 자바, 톰캣 설치된 상황)
 
@@ -60,48 +90,27 @@ NICE평가정보 상반기 수시채용 실무면접 사전과제
 	
 	cmd > shutdown.bat
 
-
-#### Docker Setting
-	
-선행작업(윈도우 환경에 도커 설치된 상황, 도커 터미널에 접근 가능한 상황)
-
-**DockerHub에서 image 다운로드(artistdeveloper docker 계정에 업로드 상태)**
-	
-	docker pull artistdeveloper/apicall:4
-
-**컨테이너 생성**
-	
-	docker run -i -t -d --dns=8.8.8.8 --name apiCallProject artistdeveloper/apicall:4
-
-**컨테이너 터미널 접속**
-	
-	docker exec -it apiCallProject /bin/bash 
-
-**톰캣 서버시작**
-	
-	./usr/local/tomcat/apache-tomcat-8.5.51/bin/startup.sh -> 프로젝트 자동빌드
-
-**톰캣 로그출력 시**
-	
-	tail -f /usr/local/tomcat/apache-tomcat-8.5.51/logs/catalina.out
-
-**톰캣 서버종료**
-	
-	cd /usr/local/tomcat/apache-tomcat-8.5.51/bin/shutdown.sh
-
 **파일 매니페스트 : ROOT.war**
 	
 - - -
 
 ### Front-end 실행 방법
 
-	- 로컬 경로 설정
- 
-  	- npm install create-react-app(템플릿 자동 생성)
- 
- 	- source codes import
- 
- 	- npm start
+	cmd > npm install -g create-react-app
+
+	cmd > npm install axios
+	
+	cmd > npm install react-router-dom
+	
+	cmd > create-react-app [테스트명]
+
+	**[테스트명]\src 내 파일 모두 삭제
+
+	**본 repository의 react-client\src 경로의 모든 파일들을 [테스트명]\src에 복사
+
+	cmd > cd [테스트명] 
+	
+	cmd > npm start
  
 - - -
 
