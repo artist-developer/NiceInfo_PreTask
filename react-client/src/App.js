@@ -13,7 +13,7 @@ import axios from "axios"
 import './App.css';
 
 //최고 상위 콤포넌트
-//authToken를 자식에게서 받아 권환 처리
+//authToken를 자식에게서 받아 권한 처리
 class App extends Component{
   constructor(props){
     console.log("props : "+props);
