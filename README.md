@@ -113,6 +113,8 @@ NICE평가정보 상반기 수시채용 실무면접 사전과제
 	cmd > npm start
 	
 	**Not Found 오류시에 해당 오류에서 내려주는 라이브러리에 대해 npm install (target)처리
+	
+**접속 가능 LogIn ID : admin, P/W : 1234**
  
 - - -
 
