@@ -118,7 +118,7 @@ NICE평가정보 상반기 수시채용 실무면접 사전과제
 	
 	ex2) cmd > npm install react-router-dom
 	
-**WEB 창 자동 실행 안될 시, http://localhost:3000/로 접속. 크롬 브라우저 사용 권장**
+**WEB 창 자동 실행 안될 시, http://localhost:3000/ 접속. 크롬 브라우저 사용 권장**
 
 **접속 가능 LogIn ID : admin, P/W : 1234**
  
