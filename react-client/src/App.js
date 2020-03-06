@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { BrowserRouter as Router, Route, Link ,Switch } from 'react-router-dom';
 
-//권환 처리
+//권한 처리
 import AuthRoute from './AuthRoute';
 //로그인 라우터
 import LoginForm from './LoginForm';
