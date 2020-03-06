@@ -96,23 +96,27 @@ NICE평가정보 상반기 수시채용 실무면접 사전과제
 
 ### Front-end 실행 방법
 
-	cmd > npm install -g create-react-app
-
-	cmd > npm install axios
+	1. cmd > npm install -g create-react-app
 	
-	cmd > npm install react-router-dom
+	** UNABLE_TO_VERIFY_LEAF_SIGNATURE 에러 발생시 
 	
-	cmd > create-react-app [테스트명]
-
-	**[테스트명]\src 내 파일 모두 삭제
-
-	**본 repository의 react-client/src 경로의 모든 파일들을 [테스트명]/src에 복사
-
-	cmd > cd [테스트명] 
+	   -> cmd > npm config set strict-ssl false 로 SSL 사용을 하지 않게끔 설정 변경
 	
-	cmd > npm start
+	2. cmd > create-react-app [테스트명]
+
+	3. [테스트명]\src 내 파일 모두 삭제
+
+	4. 본 repository의 react-client/src 경로의 모든 파일들을 [테스트명]/src에 복사
+
+	5. cmd > cd [테스트명] 
+	
+	6. cmd > npm start
 	
 	**Not Found 오류시에 해당 오류에서 내려주는 라이브러리에 대해 npm install (target)처리
+	
+	ex1) cmd > npm install axios
+	
+	ex2) cmd > npm install react-router-dom
 	
 **접속 가능 LogIn ID : admin, P/W : 1234**
  
