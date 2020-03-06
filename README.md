@@ -48,7 +48,7 @@ NICE평가정보 상반기 수시채용 실무면접 사전과제
 
 **컨테이너 생성**
 
-	docker run -i -t -d -p 8080:8080 --dns=192.168.99.100 --dns=8.8.8.8 --name [컨테이너명] artistdeveloper/apicall:4
+	docker run -i -t -d -p 8080:8080 --dns=8.8.8.8 --name [컨테이너명] artistdeveloper/apicall:4
 
 **컨테이너 터미널 접속**
 	
@@ -108,9 +108,11 @@ NICE평가정보 상반기 수시채용 실무면접 사전과제
 
 	4. 본 repository의 react-client/src 경로의 모든 파일들을 [테스트명]/src에 복사
 
-	5. cmd > cd [테스트명] 
+	5. 도커의 아이피를 확인후 ApiList.js 25라인/ LoginForm.js 35라인의 주소 경로를 변경
 	
-	6. cmd > npm start
+	6. cmd > cd [테스트명] 
+	
+	7. cmd > npm start
 	
 	**Not Found 오류시에 해당 오류에서 내려주는 라이브러리에 대해 npm install (target)처리
 	
