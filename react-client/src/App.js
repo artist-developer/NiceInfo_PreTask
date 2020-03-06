@@ -1,44 +1,40 @@
 import React, {Component} from 'react';
-import { BrowserRouter as Router, Route, Link , Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link ,Switch } from 'react-router-dom';
 
-
-import Login from './components/Login';
-import ApiList from './components/ApiList';
+//권환 처리
+import AuthRoute from './AuthRoute';
+//로그인 라우터
+import LoginForm from './LoginForm';
+//API 라우터
+import ApiList from './ApiList';
+//API Call을 위한 라이브러리
 import axios from "axios"
 
 import './App.css';
 
-
+//최고 상위 콤포넌트
+//authToken를 자식에게서 받아 권환 처리
 class App extends Component{
   constructor(props){
+    console.log("props : "+props);
     super(props);
     this.state = {
       header:{title : ""},
       contents:[
         
       ],
-      createDay:""
+      createDay:"",
+      
     }
   }
-  
 
+  //라우터로 양 컴포넌트 병합
   render(){
     return(
       <Router>
         <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Login</Link>
-              </li>
-              <li>
-                <Link to="/list">ApiList</Link>
-              </li>
-            </ul>
-          </nav>
-
-          <Route exact path='/' component={Login}/>
-          <Route path='/list' component={ApiList}/>
+          <Route exact path='/' component={LoginForm}/>
+          <Route path='/list/:authToken' component={ApiList}/>
         </div>
       </Router>
       
